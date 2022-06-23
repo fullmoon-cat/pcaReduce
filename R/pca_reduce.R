@@ -11,7 +11,7 @@
 
 PCAreduce <- function(D_t, nbt, q, method){
   Y <- prep(D_t, scale="none", center=TRUE)
-  pca_out <- FactoMineR::PCA(Y, method="svd", center = FALSE, nPcs=q)
+  pca_out <- FactoMineR::PCA(Y, scale.unit=FALSE, ncp=q)
   x <- pca_out@scores
   
   if (method == "S"){
